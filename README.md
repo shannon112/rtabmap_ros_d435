@@ -30,25 +30,6 @@ RTAB-Map is released as binaries in the ROS distribution.
     ```
     $ sudo apt-get install ros-kinetic-rtabmap-ros
     ```
-* Jade
-    ```
-    $ sudo apt-get install ros-jade-rtabmap-ros
-    ```
-* Indigo
-    ```
-    $ sudo apt-get install ros-indigo-rtabmap-ros
-    ```
-    * For armhf architecture, `ros-indigo-rtabmap-ros` is not available. Install `ros-indigo-rtabmap` and build from source `rtabmap_ros` using the `indigo-devel` branch.
-        ```
-        $ cd catkin_ws
-        $ git clone -b indigo-devel https://github.com/introlab/rtabmap_ros.git src/rtabmap_ros
-        $ catkin_make -j1
-        ```
-* Hydro:
-    ```
-    $ sudo apt-get install ros-hydro-rtabmap-ros
-    ```
-    * Note that rtabmap_ros Hydro binaries are stuck at version 0.8.12. To use the latest version, see [Build from source](https://github.com/introlab/rtabmap_ros#build-from-source) below.
 
 When launching `rtabmap_ros`'s nodes, if you have the error `error while loading shared libraries...`, add the next line at the end of your `~/.bashrc` to fix it:
     
@@ -94,6 +75,7 @@ This section shows how to install RTAB-Map ros-pkg on **ROS Hydro/Indigo/Jade/Ki
     ```bash
     $ cd ~
     $ git clone https://github.com/introlab/rtabmap.git rtabmap
+    $ git checkout 0.19.3-kinetic
     $ cd rtabmap/build
     $ cmake ..  [<---double dots included]
     $ make
@@ -105,6 +87,7 @@ This section shows how to install RTAB-Map ros-pkg on **ROS Hydro/Indigo/Jade/Ki
     ```bash
     $ cd ~/catkin_ws
     $ git clone https://github.com/introlab/rtabmap_ros.git src/rtabmap_ros
+    $ git checkout 0.19.3-kinetic
     $ catkin_make -j1
     ```
     * Use `catkin_make -j1` if compilation requires more RAM than you have (e.g., some files require up to ~1.8 GB to build).
